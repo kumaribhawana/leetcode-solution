@@ -5,7 +5,7 @@
         int index = 1;
         sort(nums.begin(),nums.end());
 
-         for(int i = 0; i < nums.size(); i++) {   // FIX
+         for(int i = 0; i < nums.size(); i++) {   
             if(nums[i] == index) {
                 index++;
         }
@@ -18,8 +18,6 @@
             ans.push_back(index);
             index++;
         }
-        
-
         return ans;
     }
 };
