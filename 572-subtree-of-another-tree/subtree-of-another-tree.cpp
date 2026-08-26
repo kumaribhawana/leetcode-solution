@@ -15,7 +15,6 @@ public:
         if (root == NULL || subRoot == NULL) {
             return root == subRoot;
         }
-
         return (root->val == subRoot->val) && isIdentical(root->left, subRoot->left) && isIdentical(root->right, subRoot->right);
     }
 
