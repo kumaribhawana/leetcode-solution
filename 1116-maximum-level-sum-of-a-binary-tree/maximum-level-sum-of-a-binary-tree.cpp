@@ -25,10 +25,12 @@ public:
             int size = q.size();
             int sum = 0;
             level++;
+            
                for (int i = 0; i < size; i++) {
                 TreeNode* curr = q.front();
                 q.pop();
                 sum += curr->val;
+
                 if (curr->left != NULL) {
                     q.push(curr->left);
                 }
