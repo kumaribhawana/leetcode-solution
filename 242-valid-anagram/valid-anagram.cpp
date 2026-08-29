@@ -1,9 +1,16 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        sort(begin(s),end(s));
-        sort(begin(t),end(t));
-
-        return s==t;
+        int n = s.length();
+        int m = t.length();
+          if (n != m) {
+            return false;
+        }
+       sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+         if (s == t) {
+            return true;
+        }
+       return false;
     }
 };
