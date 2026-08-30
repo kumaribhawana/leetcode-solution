@@ -6,15 +6,14 @@ public:
         for(int i = 0; i < n; i++) {
             count = 0;
         for(int j = n - 1; j >= 0; j--) {
-                if(nums[i] == nums[j]) {
-                    count++;
+        if(nums[i] == nums[j]) {
+            count++;
                 }
             }
-            if(count > n / 2) {
-                return nums[i];
+        if(count > n / 2) {
+         return nums[i];
             }
         }
-
         return -1;
     }
 };
