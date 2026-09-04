@@ -1,22 +1,28 @@
 class Solution {
 public:
     int longestPalindrome(string s) {
-        int freq[128]={0};
-        for(char c:s){
-            freq[c]++;
-        }
+        int n = s.size();
         int ans = 0;
-        bool odd = false;
-        for(int i = 0;i<128;i++){
-            ans += (freq[i]/2)*2;
-            if(freq[i]%2==1){
-                odd = true;
+        unordered_map<char, int> mp;
+        for (int i = 0; i < n; i++) {
+            mp[s[i]]++;
+        }
+        for (auto m : mp) {
+            int f = m.second;
+            if (f % 2 == 0) {
+                ans += f;
+            } else {
+                ans += (f - 1);
+                
             }
         }
-            if(odd){
+        for (auto m : mp) {
+            int f = m.second;
+            if (f % 2 == 1) {
                 ans++;
+                break;
             }
-        
+        }
         return ans;
     }
 };
