@@ -1,14 +1,18 @@
 class Solution {
 public:
+     void fun(vector<char>& s,int l ,int r){
+        if(l>=r){
+         return;
+        }
+        swap(s[l],s[r]);
+        l++;
+        r--;
+        fun(s,l,r);
+     }
     void reverseString(vector<char>& s) {
-        int n =s.size();
-        int i = 0;
-         int j = n-1;
-             while(i<j){
-               swap(s[i], s[j]);
-                i++;
-                j--;
-            }
-          
+        int l = 0;
+        int r = s.size()-1;
+        fun(s,l,r);
+        return;
     }
 };
