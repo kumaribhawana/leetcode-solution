@@ -9,19 +9,48 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// class Solution {
+// public:
+//   int ans = 0;
+//     void solve (TreeNode* root,int curr){
+//         ans = min(ans,curr);
+//         if(root==NULL){
+//             return;
+//         }
+//         curr++;
+//         solve(root->left,curr);
+//         solve(root->right,curr);
+//     }
+//     int minDepth(TreeNode* root) {
+//         solve(root,1);
+//         return ans;
+//     }
+// };
 class Solution {
 public:
+    int ans= INT_MAX;
+    void solve(TreeNode* root,int curr){
+         if (root == NULL) {
+            return ;
+        }
+       if (root->left == NULL && root->right == NULL) {
+         ans = min(ans,curr);
+        return;
+        }
+        curr++;
+      solve(root->left,curr);
+      solve(root->right,curr);
+
+        
+
+    }
+   
     int minDepth(TreeNode* root) {
-        if (root == NULL)
+        if (root == NULL) {
             return 0;
-        int leftHeight = minDepth(root->left);
-        int rightHeight = minDepth(root->right);
-        if (leftHeight == 0) {
-            return rightHeight + 1;
         }
-         if (rightHeight == 0) {
-            return leftHeight + 1;
-        }
-        return min(leftHeight, rightHeight) + 1;
+       solve(root,1);
+          return ans; 
+        
     }
 };
