@@ -7,7 +7,7 @@
 class Solution:
     def checkTree(self, root):
         if root is None:
-             return False
+             return
 
         ans = root.val
 
